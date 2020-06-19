@@ -36,11 +36,11 @@ func TestItReturnsFizzBuzzWhenPassed15(t *testing.T) {
 }
 
 func TestRangeOfNumbers(t *testing.T) {
-	correctAnswerSlice := []string{"1", "2", "Fizz", "4", "Buzz", "5", "Fizz", "7", "8", "Fizz",
-		"Buzz", "11", "Fizz", "13", "14", "FizzBuzz"}
+	correctAnswerSlice := []string{"1", "2", "Fizz", "4", "Buzz", "Fizz", "7", "8", "Fizz", "Buzz",
+		"11", "Fizz", "13", "14", "FizzBuzz"}
 	answerSlice := []string{}
-	for _, answer := range correctAnswerSlice {
-		answerSlice = append(answerSlice, answer)
+	for i := 1; i <= len(correctAnswerSlice); i++ {
+		answerSlice = append(answerSlice, runFizzBuzz(i))
 	}
 
 	for i := 0; i < len(correctAnswerSlice); i++ {
