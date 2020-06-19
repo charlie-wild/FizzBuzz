@@ -1,6 +1,8 @@
 package main
 
-import "testing"
+import (
+	"testing"
+)
 
 func TestItReturnsANumber(t *testing.T) {
 	fizzBuzzResult := runFizzBuzz(1)
@@ -18,6 +20,32 @@ func TestItReturnsFizzWhenPassed3(t *testing.T) {
 	}
 }
 
-// // func itReturnsBuzzWhenPassed5(t *testing.T) {
-// // 	fizzBuzzResult := runFizzBuzz()
-// // }
+func TestItReturnsBuzzWhenPassed5(t *testing.T) {
+	fizzBuzzResult := runFizzBuzz(5)
+
+	if fizzBuzzResult != "Buzz" {
+		t.Errorf("Expected Buzz, got %s", fizzBuzzResult)
+	}
+}
+
+func TestItReturnsFizzBuzzWhenPassed15(t *testing.T) {
+	fizzBuzzResult := runFizzBuzz(15)
+	if fizzBuzzResult != "FizzBuzz" {
+		t.Errorf("Expected FizzBuzz, got %s", fizzBuzzResult)
+	}
+}
+
+func TestRangeOfNumbers(t *testing.T) {
+	correctAnswerSlice := []string{"1", "2", "Fizz", "4", "Buzz", "5", "Fizz", "7", "8", "Fizz",
+		"Buzz", "11", "Fizz", "13", "14", "FizzBuzz"}
+	answerSlice := []string{}
+	for _, answer := range correctAnswerSlice {
+		answerSlice = append(answerSlice, answer)
+	}
+
+	for i := 0; i < len(correctAnswerSlice); i++ {
+		if correctAnswerSlice[i] != answerSlice[i] {
+			t.Errorf("Expected %s, got %s", correctAnswerSlice[i], answerSlice[i])
+		}
+	}
+}
